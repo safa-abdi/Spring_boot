@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="template">
+<link rel="stylesheet" type="text/css"
+href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+<head>
+<meta charset="utf-8">
+<title>Modifier Voiture</title>
+</head>
+<body>
+<div layout:fragment="Mycontent">
+<div class="container mt-5">
+<div class="card">
+<div class="card-header">
+Modifier des Voitures
+</div>
+<div class="card-body">
+<form th:action="@{saveVoiture}" method="post">
+<div class="form-group">
+<label class="control-label" hidden>ID Voiture :</label>
+<input type="hidden" name="idVoiture" class="form-control"
+th:value="${voiture.idVoiture}" />
+</div>
+<div class="form-group">
+<label class="control-label">Designation :</label>
+<input type="text" name="designation" class="form-control"
+
+th:value="${voiture.designation}" />
+
+<span th:errors= ${voiture.designation} class="text-danger">
+
+</span>
+</div>
+<div class="form-group">
+<label class="control-label">Prix Voiture :</label>
+<input type="text" name="prixVoiture" class="form-control"
+th:value="${voiture.prixVoiture}" />
+<span th:errors=${voiture.prixVoiture} class="text-danger">
+</span>
+</div>
+<div class="form-group">
+<label class="control-label">couleurs :</label>
+<input type="text" name="couleurs" class="form-control"
+
+th:value="${voiture.couleurs}"/>
+
+<span th:errors=${voiture.couleurs} class="text-danger">
+
+</span>
+</div>
+<div class="form-group">
+ <label class="control-label">Date Creation :</label>
+ <input type="date" name="dateCreation" class="form-control"
+th:value="${voiture.dateCreation}" />
+<span th:errors= ${voiture.dateCreation} class="text-danger"> </span>
+</div>
+<!--
+<div class="form-group">
+<label class="control-label">Energie :</label>
+<input type="text" name="energie" class="form-control"
+th:value="${voiture.energie}" />
+<span th:errors=${voiture.energie} class="text-danger">
+</span>
+</div>
+<div class="form-group">
+<label class="control-label">hauteur :</label>
+<input type="text" name="hauteur" class="form-control"
+th:value="${voiture.hauteur}" />
+<span th:errors=${voiture.hauteur} class="text-danger">
+</span>
+</div>
+<div class="form-group">
+<label class="control-label">puissance fiscale :</label>
+<input type="text" name="Puisssance_fiscale" class="form-control"
+th:value="${voiture.Puisssance_fiscale}" />
+<span th:errors=${voiture.Puisssance_fiscale} class="text-danger">
+</span>
+</div>
+<div class="form-group">
+<label class="control-label">boite :</label>
+<input type="text" name="boite" class="form-control"
+th:value="${voiture.boite}" />
+<span th:errors=${voiture.boite} class="text-danger">
+</span>
+</div>
+-->
+<div class="form-group">
+<label class="control-label">disponibilite :</label>
+<input type="text" name="disponibilite" class="form-control"
+th:value="${voiture.disponibilite}" />
+<span th:errors=${voiture.disponibilite} class="text-danger">
+</span>
+</div>
+<!--
+<div class="form-group">
+<label class="control-label">garantie :</label>
+<input type="text" name="garantie" class="form-control"
+th:value="${voiture.garantie}" />
+<span th:errors=${voiture.garantie} class="text-danger">
+</span>
+</div>
+<div class="form-group">
+<label class="control-label">largueur :</label>
+<input type="text" name="largueur" class="form-control"
+th:value="${voiture.largueur}" />
+<span th:errors=${voiture.largueur} class="text-danger">
+</span>
+</div>
+<div class="form-group">
+<label class="control-label">longueur :</label>
+<input type="text" name="longueur" class="form-control"
+th:value="${voiture.longueur}" />
+<span th:errors=${voiture.longueur} class="text-danger">
+</span>
+</div>
+<div class="form-group">
+<label class="control-label">nombre de cylindres :</label>
+<input type="text" name="nbCylindres" class="form-control"
+th:value="${voiture.nbCylindres}" />
+<span th:errors=${voiture.nbCylindres} class="text-danger">
+</span>
+</div>
+<div class="form-group">
+<label class="control-label">nombre de places :</label>
+<input type="text" name="nbPlaces" class="form-control"
+th:value="${voiture.nbPlaces}" />
+<span th:errors=${voiture.nbPlaces} class="text-danger">
+</span>
+</div>
+<div class="form-group">
+<label class="control-label">nombre de portes :</label>
+<input type="text" name="nbPortes" class="form-control"
+th:value="${voiture.nbPortes}" />
+<span th:errors=${voiture.nbPortes} class="text-danger">
+</span>
+</div>
+-->
+<div align="center">
+<button type="submit" class="btn btn-info">Modifier</button>
+<button type="reset" class="btn btn-warning">annuler</button>
+
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
+</body>
+</html>

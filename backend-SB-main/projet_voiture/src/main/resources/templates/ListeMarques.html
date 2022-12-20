@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="template">
+<link rel="stylesheet" type="text/css"
+href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+<head>
+<meta charset="utf-8">
+<title>Liste des Marques</title>
+</head>
+<body>
+<div layout:fragment="Mycontent">
+<div class="container mt-5">
+<div class="card">
+<div class="card-header">
+Liste des Marques
+</div>
+<div class="card-body">
+<table class="table table-striped">
+<tr>
+ <th>Id</th><th>Name</th><th>Pays</th>
+ </tr> 
+   <tr th:each="m:${marques.content}">
+      <td th:text="${m.idmarque}"></td>
+      <td th:text="${m.nomMarque}"></td>
+      <td th:text="${m.pays}"></td>
+      <td><a class="btn btn-danger" onclick="return confirm('Etes-vous sûr de supprimer cette marque ?')"th:href="@{supprimerMarque(id=${m.idmarque}, 
+page=${currentPage},size=${size})}">Supprimer</a></td>
+<td><a class="btn btn-info" th:href="@{editerMarque(id=${m.idmarque}, page=${currentPage},size=${size})}">Editer </a></td>
+ </tr> 
+ </table>
+  
+ </div>
+
+</div>
+</div>
+ </div>
+ </body>

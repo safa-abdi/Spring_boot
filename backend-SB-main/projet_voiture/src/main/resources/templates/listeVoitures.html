@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+layout:decorator="template">
+<link rel="stylesheet" type="text/css"
+href="/webjars/bootstrap/4.3.1/css/bootstrap.min.css" />
+<head>
+<meta charset="utf-8">
+<title>Liste des Voitures</title>
+</head>
+<body>
+<div layout:fragment="Mycontent">
+<div class="container mt-5">
+<div class="card">
+<div class="card-header">
+Liste des Voitures
+</div>
+<div class="card-body">
+<table class="table table-striped">
+<tr>
+ <th>ID</th><th>Designation</th><th>prixVoiture</th><th>Disponibilite</th>
+          <th>Date_création</th>
+          <th>Couleur</th>
+ </tr> 
+   <tr th:each="v:${voitures.content}">
+ <td th:text="${v.idVoiture}"></td>
+ <td th:text="${v.designation}"></td>
+ <td th:text="${v.prixVoiture }"></td>
+   <td th:text="${v.disponibilite }"></td> 
+ <td th:text="${v.dateCreation}"></td> 
+  <td th:text="${v.couleurs}"></td> 
+
+  <!--
+ <td th:text="${v.puisssance_fiscale }"></td> 
+ <td th:text="${v.energie }"></td> 
+ <td th:text="${v.boite }"></td> 
+ -->
+<td><a class="btn btn-danger" onclick="return confirm('Etes-vous sûr de supprimer cette voiture ?')"
+ th:href="@{supprimerVoiture(id=${v.idVoiture}, 
+page=${currentPage},size=${size})}">Supprimer</a></td>
+<!--
+<td><a class="btn btn-info" 
+ th:href="@{editerVoiture(id=${v.idVoiture}, 
+page=${currentPage},size=${size})}">Editer </a></td>
+
+<td><a class="btn btn-warning" 
+ th:href="@{details(id=${v.idVoiture}, 
+page=${currentPage},size=${size})}">Plus de détails</a></td>
+-->
+ </tr> 
+ </table>
+ <ul class="nav nav-pills">
+ <li th:each="page,status:${pages}">
+ <a th:class="${status.index==currentPage?'btn btn-primary':'btn' }"
+ th:href="@{ ListeVoitures(page=${status.index}, size=${size} ) }"
+ th:text="${status.index }"></a>
+ 
+ </li>
+ </ul>
+ </div>
+</div>
+</div>
+ </div>
+ </body>
